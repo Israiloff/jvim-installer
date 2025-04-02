@@ -14,7 +14,7 @@ apt install -y tzdata
 apt install -y zip
 apt install -y unzip
 apt install -y curl
-apt install -y openjdk$JDK_VERSION
+apt install -y openjdk-$JDK_VERSION-jdk
 apt install -y maven
 apt install -y git
 apt install -y npm
