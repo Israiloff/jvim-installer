@@ -1,4 +1,4 @@
-# Jvim Installer
+# Jvim Installer for Debian 12 OS
 
 ## Overview
 
