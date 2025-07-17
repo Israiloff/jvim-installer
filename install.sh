@@ -1,7 +1,7 @@
 #!/bin/bash
 
-apt update
-apt install curl
+sudo apt update
+sudo apt install curl
 
 # Download the .env file
 curl -O https://raw.githubusercontent.com/Israiloff/jvim-installer/master/.env
@@ -21,11 +21,11 @@ ln -sf /usr/share/zoneinfo/$TIMEZONE /etc/localtime
 echo "$TIMEZONE" | tee /etc/timezone
 
 # Install necessary packages
-apt install zsh
+sudo apt install zsh
 exec zsh
-apt install git
-apt install gcc
-apt install unzip
+sudo apt install git
+sudo apt install gcc
+sudo apt install unzip
 
 # Install and configure Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -52,11 +52,11 @@ nvm install "$NODE_VERSION"
 git clone https://github.com/Israiloff/jvim.git "$HOME/.config/nvim/"
 
 # Setup ZSH syntax highlighting
-apt install -y zsh-syntax-highlighting
+sudo apt install -y zsh-syntax-highlighting
 echo "source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> $HOME/.zshrc
 
 # Setup ZSH autosuggestions
-apt install -y zsh-autosuggestions
+sudo apt install -y zsh-autosuggestions
 echo "source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" >> $HOME/.zshrc
 
 # Synchronize Lazy.nvim plugins
