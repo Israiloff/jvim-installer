@@ -26,9 +26,9 @@ sudo apt install -y gcc
 sudo apt install -y unzip
 
 # Install Neovim
-sudo curl -LO "https://github.com/neovim/neovim/releases/${NEOVIM_VERSION}/download/nvim-linux-x86_64.tar.gz"
-sudo rm -rf ${HOME}/opt/nvim
-sudo tar -C ${HOME}/opt -xzf nvim-linux-x86_64.tar.gz
+curl -LO "https://github.com/neovim/neovim/releases/${NEOVIM_VERSION}/download/nvim-linux-x86_64.tar.gz"
+mkdir -p ${HOME}/opt/nvim
+tar -C ${HOME}/opt -xzf nvim-linux-x86_64.tar.gz
 echo 'export PATH="$PATH:$HOME/opt/nvim-linux-x86_64/bin"' >> "$HOME/.zshrc"
 
 # Install Java (JDK)
