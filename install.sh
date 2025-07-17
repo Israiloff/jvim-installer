@@ -14,9 +14,22 @@ fi
 sudo ln -sf /usr/share/zoneinfo/$TIMEZONE /etc/localtime
 echo "$TIMEZONE" | sudo tee /etc/timezone
 
+apt install curl
+
+# Download the .env file
+curl -O https://raw.githubusercontent.com/Israiloff/jvim-installer/master/.env
+
 # Update package list and install necessary packages
-sudo apt update
-sudo apt install -y git zsh curl gcc unzip
+apt update
+apt install zsh
+exec zsh
+apt install git
+apt install gcc
+apt install unzip
+
+# Install and configure Oh My Zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="half-life"/g' ~/.zshrc
 
 # Install Neovim
 curl -LO "https://github.com/neovim/neovim/releases/${NEOVIM_VERSION}/download/nvim-linux-x86_64.tar.gz"
@@ -38,9 +51,20 @@ nvm install "$NODE_VERSION"
 # Install Jvim
 git clone https://github.com/Israiloff/jvim.git "$HOME/.config/nvim/"
 
+# Setup ZSH syntax highlighting
+apt install -y zsh-syntax-highlighting
+echo "source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> $HOME/.zshrc
+
+# Setup ZSH autosuggestions
+apt install -y zsh-autosuggestions
+echo "source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" >> $HOME/.zshrc
+
+# Synchronize Lazy.nvim plugins
+nvim --headless "+Lazy! sync" +qa
+
 # Fix markdown-preview.nvim dependency
 npm install -g yarn
 cd "$HOME/.local/share/nvim/lazy/markdown-preview.nvim" && yarn install
 
-# Set up `pushall` alias for git
-git config --global alias.pushall 
+# Setup `pushall` alias for Git
+git config --global alias.pushall '!f() { for remote in $(git remote); do git push "$remote" "$@"; done; }; f'
