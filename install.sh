@@ -17,7 +17,7 @@ else
 fi
 
 # Set system timezone
-ln -sf /usr/share/zoneinfo/$TIMEZONE /etc/localtime
+sudo ln -sf /usr/share/zoneinfo/$TIMEZONE /etc/localtime
 echo "$TIMEZONE" | tee /etc/timezone
 
 # Install necessary packages
