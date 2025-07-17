@@ -49,7 +49,7 @@ nvm install "$NODE_VERSION"
 git clone https://github.com/Israiloff/jvim.git "$HOME/.config/nvim/"
 
 # Synchronize Lazy.nvim plugins
-nvim --headless "+Lazy! sync" +qa
+$HOME/opt/nvim-linux-x86_64/bin/nvim --headless "+Lazy! sync" +qa
 
 # Fix markdown-preview.nvim dependency
 npm install -g yarn
