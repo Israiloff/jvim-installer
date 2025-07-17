@@ -18,7 +18,6 @@ fi
 
 # Set system timezone
 sudo ln -sf /usr/share/zoneinfo/$TIMEZONE /etc/localtime
-sudo echo "$TIMEZONE" | sudo tee /etc/timezone
 
 # Install necessary packages
 sudo apt install zsh
