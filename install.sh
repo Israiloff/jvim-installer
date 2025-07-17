@@ -39,7 +39,7 @@ echo 'export PATH="$PATH:/opt/nvim-linux-x86_64/bin"' >> "$HOME/.zshrc"
 
 # Install Java (JDK)
 curl -O "https://download.oracle.com/java/${JAVA_VERSION}/latest/jdk-${JAVA_VERSION}_linux-x64_bin.deb"
-dpkg -i "jdk-${JAVA_VERSION}_linux-x64_bin.deb"
+sudo dpkg -i "jdk-${JAVA_VERSION}_linux-x64_bin.deb"
 
 # Install NVM and Node.js
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
