@@ -31,9 +31,6 @@ mkdir -p "${HOME}/opt/nvim"
 tar -C ${HOME}/opt -xzf nvim-linux-x86_64.tar.gz
 echo 'export PATH="$PATH:$HOME/opt/nvim-linux-x86_64/bin"' >> "$HOME/.zshrc"
 
-# Source .zshrc to update PATH
-source "$HOME/.zshrc"
-
 # Install Java (JDK)
 curl -O "https://download.oracle.com/java/${JAVA_VERSION}/latest/jdk-${JAVA_VERSION}_linux-x64_bin.deb"
 sudo dpkg -i "jdk-${JAVA_VERSION}_linux-x64_bin.deb"
