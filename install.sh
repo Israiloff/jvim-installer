@@ -1,5 +1,11 @@
 #!/bin/bash
 
+apt update
+apt install curl
+
+# Download the .env file
+curl -O https://raw.githubusercontent.com/Israiloff/jvim-installer/master/.env
+
 set -e
 
 # Load .env
@@ -14,13 +20,7 @@ fi
 ln -sf /usr/share/zoneinfo/$TIMEZONE /etc/localtime
 echo "$TIMEZONE" | tee /etc/timezone
 
-apt install curl
-
-# Download the .env file
-curl -O https://raw.githubusercontent.com/Israiloff/jvim-installer/master/.env
-
-# Update package list and install necessary packages
-apt update
+# Install necessary packages
 apt install zsh
 exec zsh
 apt install git
